@@ -39,3 +39,40 @@ Endpointy:
 
 * Nezapomeň vytvořit requirements.txt
 * Nezapoměň vytvořit README, jak projekt spustit
+
+
+
+## Development Guide
+
+This guide provides detailed instructions on how to interact with the `/api/import/` POST endpoint of our API, which allows for batch importing data.
+
+### Overview
+
+The `/api/import/` endpoint is designed to facilitate the batch importing of data into the system. It accepts structured JSON payloads that contain an array of model data objects.
+
+### Payload Structure
+
+#### Format
+
+The JSON payload should be an array of objects. Each object within the array must include a `name` field, which specifies the model into which the data will be imported, and a `data` field, which contains an object with the data to be imported.
+
+#### Example
+
+Below is an example payload that imports data into two models, `Model C` and `Model D`. Each object specifies the model name and the data to be imported into that model:
+
+```json
+[
+    {
+        "name": "Model C",
+        "data": {
+            "field1": "value1"
+        }
+    },
+    {
+        "name": "Model D",
+        "data": {
+            "field1": "value3"
+        }
+    }
+]
+
