@@ -78,7 +78,7 @@ python manage.py runserver
 
 ## Development Guide
 
-### /api/import
+### POST /api/import
 
 This guide provides detailed instructions on how to interact with the `/api/import/` POST endpoint of our API, which allows for batch importing data.
 
@@ -112,14 +112,14 @@ Below is an example payload that imports data into two models, `Model C` and `Mo
 ]
 ```
 
-## GET /detail/<str:model_name>/
+### GET /api/detail/<str:model_name>/
 
-### Parameters
+#### Parameters
 
 - `model_name`: The name of the model for which to retrieve the data entries.
 
 
-## `GET /detail/<str:model_name>/<int:pk>/`
+### `GET /api/detail/<str:model_name>/<int:pk>/`
 
 This endpoint retrieves detailed information about a specific data entry within a model, identified by the model name and the primary key (pk) of the data entry.
 
