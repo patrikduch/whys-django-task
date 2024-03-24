@@ -40,6 +40,40 @@ Endpointy:
 * Nezapomeň vytvořit requirements.txt
 * Nezapoměň vytvořit README, jak projekt spustit
 
+# Project startup
+
+Prepare virtualenv
+```bash
+python -m venv myvenv  
+```
+
+Go to virtualevn
+
+On Windows:
+```bash
+myvenv\Scripts\activate
+```
+
+On macOS and Linux:
+```bash
+source myvenv/bin/activate
+```
+
+
+Install the dependencies
+```bash
+pip install -r requirements.txt
+```
+
+Command for Db preparation
+```bash
+python manage.py migrate
+```
+
+Startup of Webserver
+```bash
+python manage.py runserver
+```
 
 
 ## Development Guide
@@ -59,10 +93,9 @@ Format
 The JSON payload should be an array of objects. Each object within the array must include a `name` field, which specifies the model into which the data will be imported, and a `data` field, which contains an object with the data to be imported.
 
 Example
-
 Below is an example payload that imports data into two models, `Model C` and `Model D`. Each object specifies the model name and the data to be imported into that model:
 
-```json
+```JSON
 [
     {
         "name": "Model C",
@@ -77,4 +110,20 @@ Below is an example payload that imports data into two models, `Model C` and `Mo
         }
     }
 ]
+```
 
+## GET /detail/<str:model_name>/
+
+### Parameters
+
+- `model_name`: The name of the model for which to retrieve the data entries.
+
+
+## `GET /detail/<str:model_name>/<int:pk>/`
+
+This endpoint retrieves detailed information about a specific data entry within a model, identified by the model name and the primary key (pk) of the data entry.
+
+#### Parameters
+
+- `model_name`: The name of the model.
+- `pk`: The primary key of the specific data entry to retrieve.
